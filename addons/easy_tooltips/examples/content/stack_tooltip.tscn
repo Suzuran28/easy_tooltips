@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://btrdvevkeorni"]
+
+[ext_resource type="Script" uid="uid://beuvxc0odguqa" path="res://addons/easy_tooltips/scripts/tooltip_trigger.gd" id="1_trigger"]
+
+[node name="StackTooltip" type="VBoxContainer"]
+theme_override_constants/separation = 8
+
+[node name="Hint" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.717647, 0.815686, 1)
+theme_override_font_sizes/font_size = 12
+text = "Pin this tooltip first, then hover the button below."
+autowrap_mode = 3
+
+[node name="NestedButton" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Open nested tooltip"
+
+[node name="TooltipTrigger" type="Node" parent="NestedButton"]
+script = ExtResource("1_trigger")
+title = "Nested tooltip"
+content = "A second-level tooltip opened from a content scene."
+footer = "Stacked content"

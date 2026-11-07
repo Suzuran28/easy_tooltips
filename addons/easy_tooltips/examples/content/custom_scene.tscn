@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c6imt8xqwujja"]
+
+[node name="CustomContent" type="VBoxContainer"]
+theme_override_constants/separation = 8
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.717647, 0.815686, 1)
+theme_override_font_sizes/font_size = 13
+text = "Any PackedScene can be embedded in a tooltip."
+autowrap_mode = 3
+
+[node name="Row" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Accent" type="ColorRect" parent="Row"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(0.25098, 0.678431, 0.878431, 1)
+
+[node name="Label" type="Label" parent="Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 13
+text = "The scene is instantiated for each shown tooltip."
+autowrap_mode = 3

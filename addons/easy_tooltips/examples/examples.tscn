@@ -1,0 +1,511 @@
+[gd_scene format=3 uid="uid://b1jfsel6qlxpa"]
+
+[ext_resource type="Script" uid="uid://beuvxc0odguqa" path="res://addons/easy_tooltips/scripts/tooltip_trigger.gd" id="1_trigger"]
+[ext_resource type="Script" uid="uid://byxwms6k8j2am" path="res://addons/easy_tooltips/examples/examples.gd" id="2_examples"]
+[ext_resource type="PackedScene" uid="uid://c6imt8xqwujja" path="res://addons/easy_tooltips/examples/content/custom_scene.tscn" id="3_custom"]
+[ext_resource type="PackedScene" uid="uid://btrdvevkeorni" path="res://addons/easy_tooltips/examples/content/stack_tooltip.tscn" id="4_stack"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.101961, 0.070588, 0.121569, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.305882, 0.2, 0.301961, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_row"]
+bg_color = Color(0.160784, 0.105882, 0.152941, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_input"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.121569, 0.078431, 0.121569, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.305882, 0.2, 0.301961, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_input_focus"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.121569, 0.078431, 0.121569, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25098, 0.678431, 0.878431, 0.9)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_remote"]
+bg_color = Color(0.058824, 0.168627, 0.239216, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25098, 0.678431, 0.878431, 0.6)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Main" type="Control" unique_id=1961086392 node_paths=PackedStringArray("toggle_animation_button", "custom_animation_button", "remote_trigger", "remote_node")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_examples")
+toggle_animation_button = NodePath("Margin/VBox/Columns/AdvancePanel/Margin/VBox/ToggleAnimationButton")
+custom_animation_button = NodePath("Margin/VBox/Columns/AdvancePanel/Margin/VBox/CustomAnimationButton")
+remote_trigger = NodePath("Margin/VBox/Columns/BasicPanel/Margin/VBox/RemoteRow/TooltipTrigger")
+remote_node = NodePath("Margin/VBox/Columns/RemotePanel/Margin/VBox/RemoteNode")
+
+[node name="BG" type="ColorRect" parent="." unique_id=526094248]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.027451, 0.039216, 0.070588, 1)
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1370650693]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="Margin" unique_id=551445010]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="VBoxContainer" parent="Margin/VBox" unique_id=258006656]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="Margin/VBox/Header" unique_id=1932550993]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 34
+text = "Easy Tooltips"
+
+[node name="Columns" type="HBoxContainer" parent="Margin/VBox" unique_id=1841178319]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="BasicPanel" type="PanelContainer" parent="Margin/VBox/Columns" unique_id=1511785845]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="Margin/VBox/Columns/BasicPanel" unique_id=1067050364]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="Margin/VBox/Columns/BasicPanel/Margin" unique_id=1378526015]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Section" type="Label" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox" unique_id=795446920]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.72549, 0.85098, 1)
+theme_override_font_sizes/font_size = 21
+text = "Basics"
+
+[node name="Hint" type="Label" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox" unique_id=848972003]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.619608, 0.678431, 0.780392, 1)
+theme_override_font_sizes/font_size = 12
+text = "Hover a row to preview its tooltip."
+
+[node name="Separator" type="HSeparator" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox" unique_id=771666940]
+layout_mode = 2
+
+[node name="BasicTooltip" type="Button" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox" unique_id=1482850587]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 17
+text = "Button tooltip"
+
+[node name="TooltipTrigger" type="Node" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox/BasicTooltip" unique_id=1867301837]
+script = ExtResource("1_trigger")
+title = "Easy Tooltips"
+content = "Hover to preview. [color=#8fe3ff]BBCode[/color], [b]bold[/b], and [i]italic[/i] are supported."
+footer = "Middle mouse to pin"
+pin_mode = 2
+
+[node name="AnyControlRow" type="PanelContainer" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox" unique_id=1139824844]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_row")
+
+[node name="Margin" type="MarginContainer" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox/AnyControlRow" unique_id=1503259998]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox/AnyControlRow/Margin" unique_id=1680221810]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "Any Control"
+horizontal_alignment = 1
+
+[node name="TooltipTrigger" type="Node" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox/AnyControlRow" unique_id=78823604]
+script = ExtResource("1_trigger")
+title = "Any Control"
+content = "Any Control can host a tooltip — even a plain Label."
+footer = "Mouse hover"
+
+[node name="AlignmentRow" type="PanelContainer" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox" unique_id=1388938914]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_row")
+
+[node name="Margin" type="MarginContainer" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox/AlignmentRow" unique_id=982701516]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox/AlignmentRow/Margin" unique_id=1780540003]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "Alignment & offset"
+horizontal_alignment = 1
+
+[node name="TooltipTrigger" type="Node" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox/AlignmentRow" unique_id=865932177]
+script = ExtResource("1_trigger")
+title = "Alignment & offset"
+content = "This tooltip is placed with MIDDLE_RIGHT and a small offset."
+footer = "alignment = MIDDLE_RIGHT"
+alignment = 5
+offset = Vector2(12, 0)
+
+[node name="RemoteRow" type="PanelContainer" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox" unique_id=907042283]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_row")
+
+[node name="Margin" type="MarginContainer" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox/RemoteRow" unique_id=1103890553]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox/RemoteRow/Margin" unique_id=395751018]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "Remote origin"
+horizontal_alignment = 1
+
+[node name="TooltipTrigger" type="Node" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox/RemoteRow" unique_id=1909313669]
+script = ExtResource("1_trigger")
+title = "Remote origin"
+content = "Anchored to the remote card in the third column."
+footer = "origin = REMOTE"
+origin = 1
+
+[node name="MouseFollowRow" type="PanelContainer" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox" unique_id=1404806072]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_row")
+
+[node name="Margin" type="MarginContainer" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox/MouseFollowRow" unique_id=1240560206]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox/MouseFollowRow/Margin" unique_id=1522305709]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "Mouse follow"
+horizontal_alignment = 1
+
+[node name="TooltipTrigger" type="Node" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox/MouseFollowRow" unique_id=536467034]
+script = ExtResource("1_trigger")
+title = "Mouse follow"
+content = "Follows the cursor until pinned; pinning freezes it in place."
+footer = "origin = MOUSE_FOLLOW"
+alignment = 8
+origin = 3
+offset = Vector2(18, 18)
+pin_mode = 2
+
+[node name="FocusLineEdit" type="LineEdit" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox" unique_id=1921487801]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_placeholder_color = Color(0.619608, 0.678431, 0.780392, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_input")
+theme_override_styles/focus = SubResource("StyleBoxFlat_input_focus")
+placeholder_text = "Focus trigger"
+alignment = 1
+
+[node name="TooltipTrigger" type="Node" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox/FocusLineEdit" unique_id=1013338078]
+script = ExtResource("1_trigger")
+title = "Focus trigger"
+content = "Focus this field with Tab or a click."
+footer = "trigger_mode = FOCUS"
+trigger_mode = 1
+
+[node name="Spacer" type="Control" parent="Margin/VBox/Columns/BasicPanel/Margin/VBox" unique_id=141683821]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="AdvancePanel" type="PanelContainer" parent="Margin/VBox/Columns" unique_id=1407595786]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="Margin/VBox/Columns/AdvancePanel" unique_id=1375743408]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="Margin/VBox/Columns/AdvancePanel/Margin" unique_id=477379031]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Section" type="Label" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox" unique_id=2085597255]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.72549, 0.85098, 1)
+theme_override_font_sizes/font_size = 21
+text = "Advanced"
+
+[node name="Hint" type="Label" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox" unique_id=996381526]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.619608, 0.678431, 0.780392, 1)
+theme_override_font_sizes/font_size = 12
+text = "Custom content, nested stacks, and animation."
+
+[node name="Separator" type="HSeparator" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox" unique_id=857373371]
+layout_mode = 2
+
+[node name="CustomContentRow" type="PanelContainer" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox" unique_id=778635727]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_row")
+
+[node name="Margin" type="MarginContainer" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox/CustomContentRow" unique_id=226988403]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox/CustomContentRow/Margin" unique_id=1485938249]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "Custom content"
+horizontal_alignment = 1
+
+[node name="TooltipTrigger" type="Node" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox/CustomContentRow" unique_id=306855460]
+script = ExtResource("1_trigger")
+title = "Custom content"
+content = "A PackedScene rendered inside the tooltip."
+footer = "contents = custom_scene.tscn"
+contents = Array[PackedScene]([ExtResource("3_custom")])
+
+[node name="StackRow" type="PanelContainer" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox" unique_id=561086121]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_row")
+
+[node name="Margin" type="MarginContainer" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox/StackRow" unique_id=47735800]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox/StackRow/Margin" unique_id=1026086896]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "Nested stack"
+horizontal_alignment = 1
+
+[node name="TooltipTrigger" type="Node" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox/StackRow" unique_id=1592515765]
+script = ExtResource("1_trigger")
+title = "Nested stack"
+content = "Pin this tooltip, then hover the button inside it."
+footer = "contents = stack_tooltip.tscn"
+contents = Array[PackedScene]([ExtResource("4_stack")])
+
+[node name="ContentOnlyRow" type="PanelContainer" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox" unique_id=1245681057]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_row")
+
+[node name="Margin" type="MarginContainer" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox/ContentOnlyRow" unique_id=1817650150]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox/ContentOnlyRow/Margin" unique_id=1984684042]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "Content only"
+horizontal_alignment = 1
+
+[node name="TooltipTrigger" type="Node" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox/ContentOnlyRow" unique_id=907038458]
+script = ExtResource("1_trigger")
+content = "A tooltip can contain only content — no title or footer."
+
+[node name="CustomSettingsRow" type="PanelContainer" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox" unique_id=2027778672]
+custom_minimum_size = Vector2(0, 38)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_row")
+
+[node name="Margin" type="MarginContainer" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox/CustomSettingsRow" unique_id=264142250]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox/CustomSettingsRow/Margin" unique_id=1766772821]
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+text = "Custom settings"
+horizontal_alignment = 1
+
+[node name="TooltipTrigger" type="Node" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox/CustomSettingsRow" unique_id=358586393]
+script = ExtResource("1_trigger")
+title = "Custom settings"
+content = "Use [code]EasyTooltips.get_default_setting()[/code] and [code]set_default_setting()[/code] to change defaults at runtime."
+footer = "Global TooltipSetting"
+
+[node name="ToggleAnimationButton" type="Button" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox" unique_id=1430377392]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+toggle_mode = true
+button_pressed = true
+text = "Animation: ON"
+
+[node name="TooltipTrigger" type="Node" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox/ToggleAnimationButton" unique_id=1549284235]
+script = ExtResource("1_trigger")
+title = "Animation"
+content = "Toggles [code]enable_animation[/code] on the shared TooltipSetting."
+footer = "Default animation"
+
+[node name="CustomAnimationButton" type="Button" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox" unique_id=78965555]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+toggle_mode = true
+text = "Custom animation: OFF"
+
+[node name="TooltipTrigger" type="Node" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox/CustomAnimationButton" unique_id=658542423]
+script = ExtResource("1_trigger")
+title = "Custom animation"
+content = "Installs the custom fade callables through [code]set_animations()[/code]."
+footer = "0.35s scale + fade"
+
+[node name="Spacer" type="Control" parent="Margin/VBox/Columns/AdvancePanel/Margin/VBox" unique_id=1340484705]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="RemotePanel" type="PanelContainer" parent="Margin/VBox/Columns" unique_id=1373730910]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="Margin/VBox/Columns/RemotePanel" unique_id=173724739]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="Margin/VBox/Columns/RemotePanel/Margin" unique_id=1677968797]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Section" type="Label" parent="Margin/VBox/Columns/RemotePanel/Margin/VBox" unique_id=1717923558]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.72549, 0.85098, 1)
+theme_override_font_sizes/font_size = 21
+text = "Remote anchor"
+
+[node name="Hint" type="Label" parent="Margin/VBox/Columns/RemotePanel/Margin/VBox" unique_id=332518794]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.619608, 0.678431, 0.780392, 1)
+theme_override_font_sizes/font_size = 12
+text = "The Remote origin row is anchored to this card."
+autowrap_mode = 3
+
+[node name="Separator" type="HSeparator" parent="Margin/VBox/Columns/RemotePanel/Margin/VBox" unique_id=1406625496]
+layout_mode = 2
+
+[node name="RemoteNode" type="PanelContainer" parent="Margin/VBox/Columns/RemotePanel/Margin/VBox" unique_id=1159609227]
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_remote")
+
+[node name="Center" type="CenterContainer" parent="Margin/VBox/Columns/RemotePanel/Margin/VBox/RemoteNode" unique_id=675423408]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Margin/VBox/Columns/RemotePanel/Margin/VBox/RemoteNode/Center" unique_id=1334576585]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.909804, 1, 1)
+theme_override_font_sizes/font_size = 17
+text = "Remote node"
+
+[node name="Spacer" type="Control" parent="Margin/VBox/Columns/RemotePanel/Margin/VBox" unique_id=1966935522]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2

@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://cc3g8ypb5ky82"]
+
+[ext_resource type="Script" uid="uid://bab3i3032k6kg" path="res://addons/easy_tooltips/classes/tooltip_template.gd" id="1_gs5on"]
+[ext_resource type="Texture2D" uid="uid://ck6jyt6n82wj8" path="res://addons/easy_tooltips/resources/PinTexture.png" id="2_xes8e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7niik"]
+bg_color = Color(0.12698105, 0.112109385, 0.12812501, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.34902, 0.239216, 0.341176, 0.8)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+shadow_color = Color(0, 0, 0, 0.35)
+shadow_size = 10
+shadow_offset = Vector2(0, 4)
+
+[node name="TooltipPanelStandard" type="PanelContainer" unique_id=1243417042 node_paths=PackedStringArray("title_label", "body_label", "content_holder", "footer_label", "title_separator", "pin_icon")]
+custom_minimum_size = Vector2(220, 0)
+offset_right = 220.0
+offset_bottom = 90.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7niik")
+script = ExtResource("1_gs5on")
+title_label = NodePath("MarginContainer/VBoxContainer/HBoxContainer/TitleRichTextLabel")
+body_label = NodePath("MarginContainer/VBoxContainer/BodyRichTextLabel")
+content_holder = NodePath("MarginContainer/VBoxContainer/ContentHolder")
+footer_label = NodePath("MarginContainer/VBoxContainer/FooterRichTextLabel")
+title_separator = NodePath("MarginContainer/VBoxContainer/HSeparator")
+pin_icon = NodePath("MarginContainer/VBoxContainer/HBoxContainer/PinIcon")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1309114713]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=351339672]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=562868245]
+layout_mode = 2
+
+[node name="TitleRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=66341455]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+bbcode_enabled = true
+fit_content = true
+
+[node name="PinIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1243714867]
+visible = false
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_xes8e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=2063801975]
+layout_mode = 2
+
+[node name="BodyRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1528899350]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+theme_override_font_sizes/bold_italics_font_size = 16
+theme_override_font_sizes/italics_font_size = 16
+theme_override_font_sizes/mono_font_size = 16
+bbcode_enabled = true
+fit_content = true
+
+[node name="ContentHolder" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=639130073]
+layout_mode = 2
+
+[node name="FooterRichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1118387046]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.546875, 0.42382813, 0.42382813, 1)
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_font_sizes/bold_italics_font_size = 12
+theme_override_font_sizes/italics_font_size = 12
+theme_override_font_sizes/mono_font_size = 12
+bbcode_enabled = true
+fit_content = true

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TooltipSetting" format=3 uid="uid://bh58y50d34bqx"]
+
+[ext_resource type="Script" uid="uid://5cl4iokv2n32" path="res://addons/easy_tooltips/classes/tooltip_setting.gd" id="1_i71n2"]
+[ext_resource type="PackedScene" uid="uid://cc3g8ypb5ky82" path="res://addons/easy_tooltips/templates/tooltip_panel_standard.tscn" id="1_vajuw"]
+
+[resource]
+script = ExtResource("1_i71n2")
+tooltip_template = ExtResource("1_vajuw")
+width = 400
+alignment = 6
+pin_mode = 2
+metadata/_custom_type_script = "uid://5cl4iokv2n32"
